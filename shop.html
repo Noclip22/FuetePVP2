@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FueteCoins — FuetePVP Shop</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="shop-page">
+  <div class="hero-bg shop-page-bg">
+    <div class="bokeh bokeh-1"></div>
+    <div class="bokeh bokeh-2"></div>
+    <div class="bokeh bokeh-3"></div>
+    <div class="stars"></div>
+  </div>
+
+  <header class="shop-header">
+    <a href="index.html" class="shop-back">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Back
+    </a>
+  </header>
+
+  <main class="shop-main">
+    <section class="store-section store-section--page" id="store">
+      <nav class="shop-tabs" role="tablist" aria-label="Store categories">
+        <button type="button" class="shop-tab is-active" role="tab" id="tab-coins" aria-selected="true" aria-controls="shop-panel-coins">Coins</button>
+        <button type="button" class="shop-tab" role="tab" id="tab-exclusive" aria-selected="false" aria-controls="shop-panel-exclusive">CARS</button>
+        <button type="button" class="shop-tab" role="tab" id="tab-unbans" aria-selected="false" aria-controls="shop-panel-unbans">Unbans</button>
+        <button type="button" class="shop-tab" role="tab" id="tab-crews" aria-selected="false" aria-controls="shop-panel-crews">CREWS</button>
+        <button type="button" class="shop-tab" role="tab" id="tab-ranks" aria-selected="false" aria-controls="shop-panel-ranks">RANKS</button>
+      </nav>
+
+      <div id="shop-panel-coins" class="shop-tab-panel is-active" role="tabpanel" aria-labelledby="tab-coins">
+      <h2 class="store-title">FueteCoins</h2>
+      <p class="store-subtitle">Buy coins for the server and get advantages in-game</p>
+      <div class="store-grid">
+        <article class="store-card" data-product-id="coins-500">
+          <div class="store-card-image">
+            <img src="images/500-coins.png" alt="500 FueteCoins" class="store-product-img">
+          </div>
+          <h3 class="store-card-title"><span class="coin-amount">500</span> FueteCoins</h3>
+          <p class="store-card-price">12.24 <span class="currency">USD</span></p>
+          <button type="button" class="store-btn">
+            <span class="store-btn-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+            </span>
+            Buy Now
+          </button>
+        </article>
+        <article class="store-card" data-product-id="coins-1000">
+          <div class="store-card-image">
+            <img src="images/1000-coins.png" alt="1000 FueteCoins" class="store-product-img">
+          </div>
+          <h3 class="store-card-title"><span class="coin-amount">1000</span> FueteCoins</h3>
+          <p class="store-card-price">19.31 <span class="currency">USD</span></p>
+          <button type="button" class="store-btn">
+            <span class="store-btn-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+            </span>
+            Buy Now
+          </button>
+        </article>
+        <article class="store-card" data-product-id="coins-2500">
+          <div class="store-card-image">
+            <img src="images/2500-coins.png" alt="2500 FueteCoins" class="store-product-img">
+          </div>
+          <h3 class="store-card-title"><span class="coin-amount">2500</span> FueteCoins</h3>
+          <p class="store-card-price">40.99 <span class="currency">USD</span></p>
+          <button type="button" class="store-btn">
+            <span class="store-btn-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+            </span>
+            Buy Now
+          </button>
+        </article>
+        <article class="store-card" data-product-id="coins-5000">
+          <div class="store-card-image">
+            <img src="images/5000-coins.png" alt="5000 FueteCoins" class="store-product-img">
+          </div>
+          <h3 class="store-card-title"><span class="coin-amount">5000</span> FueteCoins</h3>
+          <p class="store-card-price">72.36 <span class="currency">USD</span></p>
+          <button type="button" class="store-btn">
+            <span class="store-btn-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+            </span>
+            Buy Now
+          </button>
+        </article>
+      </div>
+      </div>
+
+      <div id="shop-panel-exclusive" class="shop-tab-panel" role="tabpanel" aria-labelledby="tab-exclusive" hidden>
+      <h2 class="store-title store-title--exclusive">CARS</h2>
+      <p class="store-subtitle store-subtitle--exclusive store-subtitle--cars-note">All cars listed here are bulletproof.</p>
+      <div class="store-cars-scroll-wrap">
+        <button type="button" class="store-cars-scroll-btn store-cars-scroll-btn--prev" aria-label="Scroll cars left">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <div class="store-cars-scroll" id="store-cars-scroll" tabindex="0" role="region" aria-label="Car packs">
+          <div class="store-grid store-grid--cars store-grid--cars-row">
+        <article class="store-card store-card--exclusive" data-product-id="exclusive-vip-february">
+          <div class="store-card-image">
+            <img src="images/cars-killerhawk.png" alt="KILLERHAWK — grey widebody SUV" class="store-product-img" width="512" height="512" loading="lazy">
+          </div>
+          <h3 class="store-card-title store-card-title--exclusive store-card-title--compact">KILLERHAWK (300MPH)</h3>
+          <p class="store-card-price">40.00 <span class="currency">USD</span></p>
+          <button type="button" class="store-btn">
+            <span class="store-btn-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+            </span>
+            Buy Now
+          </button>
+        </article>
+        <article class="store-card store-card--exclusive" data-product-id="cars-r1-2">
+          <div class="store-card-image">
+            <img src="images/cars-f480r.png" alt="F480R — purple widebody BMW M4" class="store-product-img" width="512" height="512" loading="lazy">
+          </div>
+          <h3 class="store-card-title store-card-title--exclusive store-card-title--compact">F480R (300MPH)</h3>
+          <p class="store-card-price">40.00 <span class="currency">USD</span></p>
+          <button type="button" class="store-btn">
+            <span class="store-btn-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+            </span>
+            Buy Now
+          </button>
+        </article>
+        <article class="store-card store-card--exclusive" data-product-id="cars-r1-3">
+          <div class="store-card-image">
+            <img src="images/cars-hycade-urus.png" alt="HYCADE URUS — orange widebody Lamborghini Urus" class="store-product-img store-product-img--hycade-urus" width="512" height="512" loading="lazy">
+          </div>
+          <h3 class="store-card-title store-card-title--exclusive store-card-title--compact">HYCADEURUS (450MPH)</h3>
+          <p class="store-card-price">50.00 <span class="currency">USD</span></p>
+          <button type="button" class="store-btn">
+            <span class="store-btn-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+            </span>
+            Buy Now
+          </button>
+        </article>
+        <article class="store-card store-card--exclusive" data-product-id="cars-r1-4">
+          <div class="store-card-image">
+            <img src="images/cars-rebla6gts.png" alt="REBLA6GTS — purple BMW X6 M" class="store-product-img" width="512" height="512" loading="lazy">
+          </div>
+          <h3 class="store-card-title store-card-title--exclusive store-card-title--compact">REBLA6GTS (300MPH)</h3>
+          <p class="store-card-price">40.00 <span class="currency">USD</span></p>
+          <button type="button" class="store-btn">
+            <span class="store-btn-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+            </span>
+            Buy Now
+          </button>
+        </article>
+        <article class="store-card store-card--exclusive" data-product-id="cars-r1-5">
+          <div class="store-card-image">
+            <img src="images/cars-sxr.png" alt="SXR — white sport motorcycle" class="store-product-img" width="512" height="512" loading="lazy">
+          </div>
+          <h3 class="store-card-title store-card-title--exclusive store-card-title--compact">SXR (265MPH)</h3>
+          <p class="store-card-price">25.00 <span class="currency">USD</span></p>
+          <button type="button" class="store-btn">
+            <span class="store-btn-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+            </span>
+            Buy Now
+          </button>
+        </article>
+        <article class="store-card store-card--exclusive" data-product-id="cars-r1-6">
+          <div class="store-card-image">
+            <img src="images/cars-obeyrs6key.png" alt="OBEYRS6KEY — white Audi RS6 Avant style wagon" class="store-product-img" width="512" height="512" loading="lazy">
+          </div>
+          <h3 class="store-card-title store-card-title--exclusive store-card-title--compact">OBEYRS6KEY (260MPH)</h3>
+          <p class="store-card-price">30.00 <span class="currency">USD</span></p>
+          <button type="button" class="store-btn">
+            <span class="store-btn-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+            </span>
+            Buy Now
+          </button>
+        </article>
+        <article class="store-card store-card--exclusive" data-product-id="cars-r1-7">
+          <div class="store-card-image">
+            <img src="images/cars-bcs-bm3n.png" alt="BCS_BM3N — purple widebody BMW M3" class="store-product-img" width="512" height="512" loading="lazy">
+          </div>
+          <h3 class="store-card-title store-card-title--exclusive store-card-title--compact">BCS_BM3N (250MPH)</h3>
+          <p class="store-card-price">30.00 <span class="currency">USD</span></p>
+          <button type="button" class="store-btn">
+            <span class="store-btn-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+            </span>
+            Buy Now
+          </button>
+        </article>
+        <article class="store-card store-card--exclusive" data-product-id="cars-r1-8">
+          <div class="store-card-image">
+            <img src="images/cars-zr390.png" alt="ZR390 — yellow sports coupe" class="store-product-img" width="512" height="512" loading="lazy">
+          </div>
+          <h3 class="store-card-title store-card-title--exclusive store-card-title--compact">ZR390 (450MPH)</h3>
+          <p class="store-card-price">50.00 <span class="currency">USD</span></p>
+          <button type="button" class="store-btn">
+            <span class="store-btn-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+            </span>
+            Buy Now
+          </button>
+        </article>
+        <article class="store-card store-card--exclusive" data-product-id="cars-r1-9">
+          <div class="store-card-image">
+            <img src="images/cars-dubmono2.png" alt="DUBMONO2 — purple widebody Mercedes G-Class" class="store-product-img" width="512" height="512" loading="lazy">
+          </div>
+          <h3 class="store-card-title store-card-title--exclusive store-card-title--compact">DUBMONO2 (300 MPH)</h3>
+          <p class="store-card-price">40.00 <span class="currency">USD</span></p>
+          <button type="button" class="store-btn">
+            <span class="store-btn-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+            </span>
+            Buy Now
+          </button>
+        </article>
+        <article class="store-card store-card--exclusive" data-product-id="cars-r1-10">
+          <div class="store-card-image">
+            <img src="images/cars-jubilee2.png" alt="JUBILEE2 — red widebody Enus Jubilee" class="store-product-img" width="512" height="512" loading="lazy">
+          </div>
+          <h3 class="store-card-title store-card-title--exclusive store-card-title--compact">JUBILEE2 (300 MPH)</h3>
+          <p class="store-card-price">40.00 <span class="currency">USD</span></p>
+          <button type="button" class="store-btn">
+            <span class="store-btn-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+            </span>
+            Buy Now
+          </button>
+        </article>
+        <article class="store-card store-card--exclusive" data-product-id="cars-r1-11">
+          <div class="store-card-image">
+            <img src="images/cars-hycadeevo.png" alt="HYCADEEVO — grey widebody Lancer Evolution X" class="store-product-img" width="512" height="512" loading="lazy">
+          </div>
+          <h3 class="store-card-title store-card-title--exclusive store-card-title--compact">HYCADEEVO (230 MPH)</h3>
+          <p class="store-card-price">30.00 <span class="currency">USD</span></p>
+          <button type="button" class="store-btn">
+            <span class="store-btn-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+            </span>
+            Buy Now
+          </button>
+        </article>
+        <article class="store-card store-card--exclusive" data-product-id="cars-r1-12">
+          <div class="store-card-image">
+            <img src="images/cars-500.png" alt="500 — red widebody Land Cruiser style SUV" class="store-product-img" width="512" height="512" loading="lazy">
+          </div>
+          <h3 class="store-card-title store-card-title--exclusive store-card-title--compact">500 (300 MPH)</h3>
+          <p class="store-card-price">40.00 <span class="currency">USD</span></p>
+          <button type="button" class="store-btn">
+            <span class="store-btn-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+            </span>
+            Buy Now
+          </button>
+        </article>
+        <article class="store-card store-card--exclusive" data-product-id="cars-r1-13">
+          <div class="store-card-image">
+            <img src="images/cars-xlsgt.png" alt="XLSGT — blue Mercedes GLC Coupe" class="store-product-img" width="512" height="512" loading="lazy">
+          </div>
+          <h3 class="store-card-title store-card-title--exclusive store-card-title--compact">XLSGT (300 MPH)</h3>
+          <p class="store-card-price">40.00 <span class="currency">USD</span></p>
+          <button type="button" class="store-btn">
+            <span class="store-btn-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+            </span>
+            Buy Now
+          </button>
+        </article>
+        <article class="store-card store-card--exclusive" data-product-id="cars-r1-14">
+          <div class="store-card-image">
+            <img src="images/cars-gcb23x7.png" alt="GCB23X7 — purple BMW X7 style SUV" class="store-product-img" width="512" height="512" loading="lazy">
+          </div>
+          <h3 class="store-card-title store-card-title--exclusive store-card-title--compact">GCB23X7 (300 MPH)</h3>
+          <p class="store-card-price">40.00 <span class="currency">USD</span></p>
+          <button type="button" class="store-btn">
+            <span class="store-btn-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+            </span>
+            Buy Now
+          </button>
+        </article>
+        <article class="store-card store-card--exclusive" data-product-id="cars-r1-15">
+          <div class="store-card-image">
+            <img src="images/cars-gstreb1.png" alt="GSTREB1 — grey widebody BMW X5 style SUV" class="store-product-img" width="512" height="512" loading="lazy">
+          </div>
+          <h3 class="store-card-title store-card-title--exclusive store-card-title--compact">GSTREB1 (300 MPH)</h3>
+          <p class="store-card-price">40.00 <span class="currency">USD</span></p>
+          <button type="button" class="store-btn">
+            <span class="store-btn-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+            </span>
+            Buy Now
+          </button>
+        </article>
+        <article class="store-card store-card--exclusive" data-product-id="cars-r1-16">
+          <div class="store-card-image">
+            <img src="images/cars-reblax6.png" alt="REBLAX6 — red widebody sports sedan" class="store-product-img" width="512" height="512" loading="lazy">
+          </div>
+          <h3 class="store-card-title store-card-title--exclusive store-card-title--compact">REBLAX6 (300 MPH)</h3>
+          <p class="store-card-price">40.00 <span class="currency">USD</span></p>
+          <button type="button" class="store-btn">
+            <span class="store-btn-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+            </span>
+            Buy Now
+          </button>
+        </article>
+        <article class="store-card store-card--exclusive" data-product-id="cars-r1-17">
+          <div class="store-card-image">
+            <img src="images/cars-gt63mt.png" alt="GT63MT — purple widebody Mercedes-AMG GT 4-door" class="store-product-img" width="512" height="512" loading="lazy">
+          </div>
+          <h3 class="store-card-title store-card-title--exclusive store-card-title--compact">GT63MT (300 MPH)</h3>
+          <p class="store-card-price">40.00 <span class="currency">USD</span></p>
+          <button type="button" class="store-btn">
+            <span class="store-btn-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+            </span>
+            Buy Now
+          </button>
+        </article>
+        <article class="store-card store-card--exclusive" data-product-id="cars-r1-18">
+          <div class="store-card-image">
+            <img src="images/cars-veleno.png" alt="VELENO — dark purple Ferrari Purosangue style SUV" class="store-product-img" width="512" height="512" loading="lazy">
+          </div>
+          <h3 class="store-card-title store-card-title--exclusive store-card-title--compact">VELENO (300 MPH)</h3>
+          <p class="store-card-price">40.00 <span class="currency">USD</span></p>
+          <button type="button" class="store-btn">
+            <span class="store-btn-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+            </span>
+            Buy Now
+          </button>
+        </article>
+        <article class="store-card store-card--exclusive" data-product-id="cars-r1-19">
+          <div class="store-card-image">
+            <img src="images/cars-s1000rr.png" alt="S1000RR — black BMW sport motorcycle" class="store-product-img" width="512" height="512" loading="lazy">
+          </div>
+          <h3 class="store-card-title store-card-title--exclusive store-card-title--compact">S1000RR (265 MPH)</h3>
+          <p class="store-card-price">25.00 <span class="currency">USD</span></p>
+          <button type="button" class="store-btn">
+            <span class="store-btn-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+            </span>
+            Buy Now
+          </button>
+        </article>
+        <article class="store-card store-card--exclusive" data-product-id="cars-r1-21">
+          <div class="store-card-image">
+            <img src="images/cars-gsl600larte.png" alt="GSL600LARTE — purple Mercedes-Maybach GLS style SUV" class="store-product-img" width="512" height="512" loading="lazy">
+          </div>
+          <h3 class="store-card-title store-card-title--exclusive store-card-title--compact">GSL600LARTE (300 MPH)</h3>
+          <p class="store-card-price">40.00 <span class="currency">USD</span></p>
+          <button type="button" class="store-btn">
+            <span class="store-btn-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+            </span>
+            Buy Now
+          </button>
+        </article>
+        <article class="store-card store-card--exclusive" data-product-id="cars-r1-22">
+          <div class="store-card-image">
+            <img src="images/cars-tenere1200.png" alt="TENERE1200 — green adventure motorcycle" class="store-product-img" width="512" height="512" loading="lazy">
+          </div>
+          <h3 class="store-card-title store-card-title--exclusive store-card-title--compact">TENERE1200 (390 MPH)</h3>
+          <p class="store-card-price">50.00 <span class="currency">USD</span></p>
+          <button type="button" class="store-btn">
+            <span class="store-btn-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+            </span>
+            Buy Now
+          </button>
+        </article>
+        <article class="store-card store-card--exclusive" data-product-id="cars-r1-23">
+          <div class="store-card-image">
+            <img src="images/cars-obeysr7.png" alt="OBEYSR7 — purple performance sedan" class="store-product-img" width="512" height="512" loading="lazy">
+          </div>
+          <h3 class="store-card-title store-card-title--exclusive store-card-title--compact">OBEYSR7 (300 MPH)</h3>
+          <p class="store-card-price">40.00 <span class="currency">USD</span></p>
+          <button type="button" class="store-btn">
+            <span class="store-btn-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+            </span>
+            Buy Now
+          </button>
+        </article>
+        <article class="store-card store-card--exclusive" data-product-id="cars-r1-24">
+          <div class="store-card-image">
+            <img src="images/cars-2ncsx7.png" alt="2NCSX7 — purple BMW X5 style SUV" class="store-product-img" width="512" height="512" loading="lazy">
+          </div>
+          <h3 class="store-card-title store-card-title--exclusive store-card-title--compact">2NCSX7 (300 MPH)</h3>
+          <p class="store-card-price">40.00 <span class="currency">USD</span></p>
+          <button type="button" class="store-btn">
+            <span class="store-btn-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+            </span>
+            Buy Now
+          </button>
+        </article>
+        <article class="store-card store-card--exclusive" data-product-id="cars-r1-25">
+          <div class="store-card-image">
+            <img src="images/cars-r1200gs.png" alt="R1200GS — white adventure motorcycle" class="store-product-img" width="512" height="512" loading="lazy">
+          </div>
+          <h3 class="store-card-title store-card-title--exclusive store-card-title--compact">R1200GS (290 MPH)</h3>
+          <p class="store-card-price">25.00 <span class="currency">USD</span></p>
+          <button type="button" class="store-btn">
+            <span class="store-btn-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+            </span>
+            Buy Now
+          </button>
+        </article>
+        <article class="store-card store-card--exclusive" data-product-id="cars-r1-26">
+          <div class="store-card-image">
+            <img src="images/cars-gcb23x7-box26.png" alt="GCB23X7 — purple BMW X7 style SUV" class="store-product-img" width="512" height="512" loading="lazy">
+          </div>
+          <h3 class="store-card-title store-card-title--exclusive store-card-title--compact">GCB23X7 (300 MPH)</h3>
+          <p class="store-card-price">40.00 <span class="currency">USD</span></p>
+          <button type="button" class="store-btn">
+            <span class="store-btn-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+            </span>
+            Buy Now
+          </button>
+        </article>
+          </div>
+        </div>
+        <button type="button" class="store-cars-scroll-btn store-cars-scroll-btn--next" aria-label="Scroll cars right">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+      </div>
+      </div>
+
+      <div id="shop-panel-unbans" class="shop-tab-panel" role="tabpanel" aria-labelledby="tab-unbans" hidden>
+      <h2 class="store-title store-title--unban">Server Unbans</h2>
+      <p class="store-subtitle store-subtitle--unban">Get back on the server—appeal your ban and pick the option that matches your case.</p>
+      <div class="store-grid store-grid--unban">
+        <article class="store-card store-card--unban" data-product-id="unban-cheater">
+          <div class="store-card-image">
+            <img src="images/unban-promo.png" alt="UNBAN — Latinos PVP, prohibited sign graphic" class="store-product-img" width="512" height="512" loading="lazy">
+          </div>
+          <h3 class="store-card-title store-card-title--unban">Cheater Unban</h3>
+          <p class="store-card-price">49.99 <span class="currency">USD</span></p>
+          <button type="button" class="store-btn">
+            <span class="store-btn-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+            </span>
+            Buy Now
+          </button>
+        </article>
+        <article class="store-card store-card--unban" data-product-id="unban-standard">
+          <div class="store-card-image">
+            <img src="images/unban-promo.png" alt="UNBAN — Latinos PVP, prohibited sign graphic" class="store-product-img" width="512" height="512" loading="lazy">
+          </div>
+          <h3 class="store-card-title store-card-title--unban">Standard Unban</h3>
+          <p class="store-card-price">24.99 <span class="currency">USD</span></p>
+          <button type="button" class="store-btn">
+            <span class="store-btn-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+            </span>
+            Buy Now
+          </button>
+        </article>
+      </div>
+      </div>
+
+      <div id="shop-panel-crews" class="shop-tab-panel" role="tabpanel" aria-labelledby="tab-crews" hidden>
+      <h2 class="store-title store-title--crews">CREWS</h2>
+      <p class="store-subtitle store-subtitle--crews">Start your crew, invite members, and unlock crew features on the server.</p>
+      <div class="store-grid store-grid--crews">
+        <article class="store-card store-card--crews" data-product-id="crew">
+          <div class="store-card-image">
+            <img src="images/crew.png" alt="CREW — Latinos PVP" class="store-product-img" width="512" height="512" loading="lazy">
+          </div>
+          <h3 class="store-card-title store-card-title--crews">Crew</h3>
+          <p class="store-card-price">15.00 <span class="currency">USD</span></p>
+          <button type="button" class="store-btn">
+            <span class="store-btn-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+            </span>
+            Buy Now
+          </button>
+        </article>
+      </div>
+      </div>
+
+      <div id="shop-panel-ranks" class="shop-tab-panel" role="tabpanel" aria-labelledby="tab-ranks" hidden>
+      <h2 class="store-title store-title--ranks">RANKS</h2>
+      <p class="store-subtitle store-subtitle--ranks">Bronze, Gold, and Silver ranks—Gold is shown in the center. Pick the tier that fits your play style.</p>
+      <div class="store-grid">
+        <article class="store-card store-card--rank-bronze" data-product-id="rank-bronze">
+          <div class="store-card-image">
+            <img src="images/rank-bronze.png" alt="Bronze rank — FUETEPVP" class="store-product-img" width="512" height="512" loading="lazy">
+          </div>
+          <h3 class="store-card-title store-card-title--rank">Bronze Rank</h3>
+          <p class="store-card-price">9.99 <span class="currency">USD</span></p>
+          <button type="button" class="store-btn">
+            <span class="store-btn-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+            </span>
+            Buy Now
+          </button>
+        </article>
+        <article class="store-card store-card--rank-silver" data-product-id="rank-silver">
+          <div class="store-card-image">
+            <img src="images/rank-silver.png" alt="Silver rank — FUETEPVP" class="store-product-img" width="512" height="512" loading="lazy">
+          </div>
+          <h3 class="store-card-title store-card-title--rank">Silver Rank</h3>
+          <p class="store-card-price">19.99 <span class="currency">USD</span></p>
+          <button type="button" class="store-btn">
+            <span class="store-btn-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+            </span>
+            Buy Now
+          </button>
+        </article>
+        <article class="store-card store-card--rank-gold" data-product-id="rank-gold">
+          <div class="store-card-image">
+            <img src="images/rank-gold.png" alt="Gold rank — FUETEPVP" class="store-product-img" width="512" height="512" loading="lazy">
+          </div>
+          <h3 class="store-card-title store-card-title--rank">Gold Rank</h3>
+          <p class="store-card-price">29.99 <span class="currency">USD</span></p>
+          <button type="button" class="store-btn">
+            <span class="store-btn-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+            </span>
+            Buy Now
+          </button>
+        </article>
+      </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="product-modal" class="product-modal" hidden aria-hidden="true">
+    <div class="product-modal-backdrop" data-modal-close></div>
+    <div class="product-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="product-modal-title" tabindex="-1">
+      <button type="button" class="product-modal-close" data-modal-close aria-label="Close">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+      <h2 id="product-modal-title" class="product-modal-title"></h2>
+      <div class="product-modal-scroll">
+        <p class="product-modal-lead"></p>
+        <h3 class="product-modal-section-title">What you get</h3>
+        <ul class="product-modal-perks"></ul>
+      </div>
+      <div class="product-modal-footer">
+        <div class="product-modal-checkout">
+          <span class="product-modal-price"></span>
+          <button type="button" class="store-btn product-modal-buy-btn" id="product-modal-buy" aria-expanded="false" aria-controls="product-modal-buy-extra">
+            <span class="store-btn-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+            </span>
+            Buy Now
+          </button>
+          <div id="product-modal-buy-extra" class="product-modal-buy-extra" hidden>
+            <p class="product-modal-buy-extra-text">You’re almost there — confirm below to continue to secure checkout (Stripe / server store).</p>
+            <button type="button" class="product-modal-buy-confirm">Continue to checkout</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="shop-config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
