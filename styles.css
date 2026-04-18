@@ -196,6 +196,11 @@ body::-webkit-scrollbar {
   animation: slideInFromLeft 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s forwards;
 }
 
+.hero-animate .hero-logo-wrap.animate-item {
+  opacity: 0;
+  animation: slideInFromRight 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.55s forwards;
+}
+
 .hero-animate .buttons-stack.animate-item {
   opacity: 0;
   animation: slideInFromLeft 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s forwards;
@@ -208,6 +213,10 @@ body::-webkit-scrollbar {
 
 @media (min-width: 901px) {
   .hero-animate .hero-featured-wrap.animate-item {
+    animation-name: slideInBattlepassDesktop;
+  }
+
+  .hero-animate .hero-logo-wrap.animate-item {
     animation-name: slideInBattlepassDesktop;
   }
 }
@@ -225,14 +234,12 @@ body::-webkit-scrollbar {
   background: transparent;
 }
 
-/* Fylder skærmbredden — BATTLEPASS på desktop låst til viewport-højre (absolute) */
 .hero-inner {
   position: relative;
   z-index: 2;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-columns: 1fr;
   align-items: center;
-  column-gap: clamp(2.5rem, 8vw, 7rem);
   width: 100%;
   box-sizing: border-box;
   padding-inline-start: clamp(2rem, 9vw, 6.5rem);
@@ -242,7 +249,7 @@ body::-webkit-scrollbar {
 .hero-content {
   position: relative;
   z-index: 2;
-  justify-self: end;
+  justify-self: start;
   width: fit-content;
   max-width: min(1200px, 100%);
 }
@@ -253,26 +260,18 @@ body::-webkit-scrollbar {
     column-gap: 0;
     align-items: center;
     align-content: center;
-    /* Samme højde som synlig hero, så top:50% = midt på skærmen (ikke bund-hjørne) */
     min-height: calc(100svh - 6rem);
-    /* Plads til kortet så Fuete ikke kører ind under */
-    padding-inline-end: max(calc(280px + 1.75rem), env(safe-area-inset-right, 0px));
+    /* Plads til stort logo til højre */
+    padding-inline-end: max(
+      calc(min(30rem, 46vw) + clamp(2rem, 4vw, 3.5rem)),
+      env(safe-area-inset-right, 0px)
+    );
   }
 
   .hero-content {
     justify-self: start;
     align-self: center;
-    max-width: min(1200px, calc(100% - 1rem));
-  }
-
-  .hero-featured-wrap {
-    position: absolute;
-    /* Further from right edge = closer to center (tweak here) */
-    right: max(clamp(7.125rem, 28.25vw, 22.25rem), env(safe-area-inset-right, 0px));
-    /* Højere på siden end midten — “meget højere op” */
-    top: clamp(18%, 22vh, 30%);
-    width: min(280px, calc(100vw - clamp(2rem, 9vw, 6.5rem) - 2rem));
-    justify-self: unset;
+    max-width: min(1200px, calc(100% - min(32rem, 50vw)));
   }
 }
 
@@ -290,6 +289,43 @@ body::-webkit-scrollbar {
   align-items: flex-start;
   gap: 1.75rem;
   min-width: 0;
+}
+
+/* Forside — logo til højre (desktop: absolut; mobil: under indhold, højrejusteret) */
+.hero-logo-wrap {
+  justify-self: end;
+  line-height: 0;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.hero-logo-wrap .hero-logo {
+  width: min(22rem, 72vw);
+  max-width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  opacity: 0.86;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+}
+
+@media (min-width: 901px) {
+  .hero-logo-wrap {
+    position: absolute;
+    right: max(clamp(7.5rem, 23vw, 18rem), env(safe-area-inset-right, 0px));
+    top: clamp(10%, 16vh, 28%);
+    width: min(30rem, 46vw);
+    max-width: min(480px, calc(100vw - clamp(2rem, 9vw, 6.5rem) - 15rem));
+    z-index: 1;
+    justify-self: unset;
+  }
+
+  .hero-logo-wrap .hero-logo {
+    width: 100%;
+  }
 }
 
 .title {
@@ -379,7 +415,8 @@ body::-webkit-scrollbar {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-animate .hero-featured-wrap.animate-item {
+  .hero-animate .hero-featured-wrap.animate-item,
+  .hero-animate .hero-logo-wrap.animate-item {
     animation: none !important;
     opacity: 1;
     transform: none;
@@ -792,7 +829,8 @@ body.shop-page {
 .shop-tab-panel .store-title--exclusive,
 .shop-tab-panel .store-title--unban,
 .shop-tab-panel .store-title--crews,
-.shop-tab-panel .store-title--ranks {
+.shop-tab-panel .store-title--ranks,
+.shop-tab-panel .store-title--more {
   margin-top: 0.25rem;
 }
 
@@ -1084,6 +1122,7 @@ body.shop-page {
 /* Same width as one coin card in a 4-column row (1100px − 3 gaps) / 4 — Unbans, Crews, CARS */
 .store-grid--unban,
 .store-grid--crews,
+.store-grid--more,
 .store-grid--cars {
   display: flex;
   flex-wrap: wrap;
@@ -1189,7 +1228,8 @@ body.shop-page {
 
 .store-card--unban,
 .store-card--crews,
-.store-grid--cars .store-card--exclusive {
+.store-grid--cars .store-card--exclusive,
+#shop-panel-more .store-grid--more > .store-card {
   flex: 0 0 auto;
   width: min(
     calc((1100px - 3 * 1.5rem) / 4),
@@ -1310,17 +1350,19 @@ button.store-btn {
   cursor: pointer;
 }
 
-/* Coins + CARS + Unbans + CREWS: no product modal — cards and Buy are not interactive */
+/* Coins + CARS + Unbans + CREWS + MORE: no product modal — cards and Buy are not interactive */
 #shop-panel-coins .store-card,
 #shop-panel-exclusive .store-card,
 #shop-panel-unbans .store-card,
-#shop-panel-crews .store-card {
+#shop-panel-crews .store-card,
+#shop-panel-more .store-card {
   cursor: default;
 }
 
 #shop-panel-coins .store-card .store-btn,
 #shop-panel-unbans .store-card .store-btn,
-#shop-panel-crews .store-card .store-btn {
+#shop-panel-crews .store-card .store-btn,
+#shop-panel-more .store-card .store-btn {
   cursor: default;
   pointer-events: none;
 }
@@ -1333,7 +1375,8 @@ button.store-btn {
 #shop-panel-coins .store-card:hover,
 #shop-panel-exclusive .store-card:hover,
 #shop-panel-unbans .store-card:hover,
-#shop-panel-crews .store-card:hover {
+#shop-panel-crews .store-card:hover,
+#shop-panel-more .store-card:hover {
   border-color: var(--border-subtle);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
@@ -1342,14 +1385,16 @@ button.store-btn {
   #shop-panel-coins .store-card:hover,
   #shop-panel-exclusive .store-card:hover,
   #shop-panel-unbans .store-card:hover,
-  #shop-panel-crews .store-card:hover {
+  #shop-panel-crews .store-card:hover,
+  #shop-panel-more .store-card:hover {
     transform: none;
   }
 
   #shop-panel-coins .store-card:hover .store-product-img,
   #shop-panel-exclusive .store-card:hover .store-product-img,
   #shop-panel-unbans .store-card:hover .store-product-img,
-  #shop-panel-crews .store-card:hover .store-product-img {
+  #shop-panel-crews .store-card:hover .store-product-img,
+  #shop-panel-more .store-card:hover .store-product-img {
     transform: none;
   }
 }
@@ -1663,6 +1708,21 @@ body.product-modal-open {
     width: 100%;
   }
 
+  .hero-logo-wrap {
+    position: relative;
+    right: auto;
+    top: auto;
+    width: 100%;
+    max-width: none;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 0.5rem;
+  }
+
+  .hero-logo-wrap .hero-logo {
+    width: min(20rem, 58vw);
+  }
+
   .hero-featured-wrap {
     position: relative;
     right: auto;
@@ -1706,6 +1766,7 @@ body.product-modal-open {
 
   .store-grid--unban,
   .store-grid--crews,
+  .store-grid--more,
   .store-grid--cars:not(.store-grid--cars-row) {
     flex-direction: column;
     align-items: stretch;
@@ -1714,6 +1775,7 @@ body.product-modal-open {
 
   .store-card--unban,
   .store-card--crews,
+  #shop-panel-more .store-grid--more > .store-card,
   .store-grid--cars:not(.store-grid--cars-row) .store-card--exclusive {
     width: 100%;
     max-width: none;

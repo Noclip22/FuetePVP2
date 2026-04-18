@@ -338,6 +338,7 @@
     'shop-panel-exclusive',
     'shop-panel-unbans',
     'shop-panel-crews',
+    'shop-panel-more',
   ]);
 
   root.addEventListener('click', (e) => {
