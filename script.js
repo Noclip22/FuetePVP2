@@ -190,15 +190,16 @@
   updateButtons();
 })();
 
-// CARS — Buy Now → Stripe when product has checkoutUrl in shop-config.js
-(function initCarsBuyCheckout() {
-  const panel = document.getElementById('shop-panel-exclusive');
-  if (!panel) return;
-  panel.addEventListener('click', (e) => {
+// Shop cards — Buy Now → Stripe when product has checkoutUrl in shop-config.js
+(function initShopBuyCheckout() {
+  const root = document.querySelector('.store-section--page');
+  if (!root) return;
+  root.addEventListener('click', (e) => {
     const btn = e.target.closest('.store-btn');
     if (!btn || !btn.closest('.store-card')) return;
     const card = btn.closest('.store-card');
     const id = card?.getAttribute('data-product-id');
+    if (!id) return;
     const cfg = typeof window.SHOP_CONFIG === 'object' && window.SHOP_CONFIG?.products?.[id];
     const url = cfg?.checkoutUrl;
     if (!url) return;

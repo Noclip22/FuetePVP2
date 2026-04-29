@@ -1375,8 +1375,8 @@ button.store-btn {
 #shop-panel-unbans .store-card .store-btn,
 #shop-panel-crews .store-card .store-btn,
 #shop-panel-more .store-card .store-btn {
-  cursor: default;
-  pointer-events: none;
+  cursor: pointer;
+  pointer-events: auto;
 }
 
 #shop-panel-exclusive .store-card .store-btn {

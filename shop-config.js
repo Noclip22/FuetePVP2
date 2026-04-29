@@ -13,7 +13,7 @@ window.SHOP_CONFIG = {
         'Instant delivery after purchase',
         'Secure checkout',
       ],
-      checkoutUrl: 'https://buy.stripe.com/3cI6oJeBRcl6gNYgze8EM02',
+      checkoutUrl: 'https://buy.stripe.com/eVq8wRdxN0CofJUciY8EM0g',
     },
     'coins-1000': {
       description:
