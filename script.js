@@ -546,37 +546,27 @@ if (copyBtn && connectCode) {
     hour12: false,
   });
 
-  function getDanishNow() {
+  function getDanishNowParts() {
     const parts = zonedFormatter.formatToParts(new Date());
     const values = {};
     parts.forEach((part) => {
       if (part.type !== 'literal') values[part.type] = Number.parseInt(part.value, 10);
     });
-
-    // Build a stable "clock date" from Danish wall time.
-    return new Date(
-      Date.UTC(
-        values.year,
-        values.month - 1,
-        values.day,
-        values.hour,
-        values.minute,
-        values.second
-      )
-    );
+    return values;
   }
 
-  function getNextRestart(now) {
+  function getSecondsUntilNextRestart(nowParts) {
+    const nowSeconds = nowParts.hour * 3600 + nowParts.minute * 60 + nowParts.second;
+    let minDelta = Number.POSITIVE_INFINITY;
+
     for (const hour of restartHours) {
-      const candidate = new Date(now);
-      candidate.setHours(hour, 0, 0, 0);
-      if (candidate > now) return candidate;
+      const targetSeconds = hour * 3600;
+      let delta = (targetSeconds - nowSeconds + 86400) % 86400;
+      if (delta === 0) delta = 86400;
+      if (delta < minDelta) minDelta = delta;
     }
 
-    const tomorrow = new Date(now);
-    tomorrow.setDate(tomorrow.getDate() + 1);
-    tomorrow.setHours(restartHours[0], 0, 0, 0);
-    return tomorrow;
+    return minDelta;
   }
 
   function pad(value) {
@@ -592,9 +582,9 @@ if (copyBtn && connectCode) {
   }
 
   function updateRestartTimer() {
-    const now = getDanishNow();
-    const nextRestart = getNextRestart(now);
-    restartEl.textContent = formatDiff(nextRestart - now);
+    const nowParts = getDanishNowParts();
+    const secondsUntilRestart = getSecondsUntilNextRestart(nowParts);
+    restartEl.textContent = formatDiff(secondsUntilRestart * 1000);
   }
 
   updateRestartTimer();
