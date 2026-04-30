@@ -339,12 +339,13 @@
     'shop-panel-exclusive',
     'shop-panel-unbans',
     'shop-panel-crews',
-    'shop-panel-more',
   ]);
 
   root.addEventListener('click', (e) => {
     const card = e.target.closest('.store-card');
     if (!card) return;
+    const productId = card.getAttribute('data-product-id');
+    if (!productId) return;
     const panel = card.closest('.shop-tab-panel');
     if (panel?.id && NO_MODAL_PANEL_IDS.has(panel.id)) return;
     openFromCard(card);
@@ -417,3 +418,185 @@ if (copyBtn && connectCode) {
     }
   });
 }
+
+// Discord members (index.html) - refreshes automatically
+(function initDiscordMemberCount() {
+  const membersEl = document.getElementById('discord-members');
+  if (!membersEl) return;
+
+  const guildId = '1252988716155146367';
+  const discordJoinLink = document.querySelector('a[href*="discord.gg/"]');
+  const inviteCode = (() => {
+    const href = discordJoinLink?.getAttribute('href') || '';
+    const match = href.match(/discord\.gg\/([A-Za-z0-9-]+)/i);
+    return match?.[1] || 'fuete';
+  })();
+
+  function formatCount(value) {
+    return new Intl.NumberFormat('da-DK').format(value);
+  }
+
+  async function fetchMemberCount() {
+    // Try invite endpoint first (works for most public invites).
+    const inviteUrl = `https://discord.com/api/v10/invites/${encodeURIComponent(inviteCode)}?with_counts=true`;
+    const previewUrl = `https://discord.com/api/v10/guilds/${encodeURIComponent(guildId)}/preview`;
+
+    const tryInvite = await fetch(inviteUrl, { cache: 'no-store' });
+    if (tryInvite.ok) {
+      const data = await tryInvite.json();
+      if (Number.isFinite(data?.approximate_member_count)) {
+        return data.approximate_member_count;
+      }
+    }
+
+    // Fallback: guild preview (requires discoverable/public server).
+    const tryPreview = await fetch(previewUrl, { cache: 'no-store' });
+    if (tryPreview.ok) {
+      const data = await tryPreview.json();
+      if (Number.isFinite(data?.approximate_member_count)) {
+        return data.approximate_member_count;
+      }
+    }
+
+    throw new Error('Could not fetch Discord member count');
+  }
+
+  async function updateMemberCount() {
+    try {
+      const count = await fetchMemberCount();
+      membersEl.textContent = formatCount(count);
+    } catch (err) {
+      console.warn('Discord member count update failed:', err);
+      if (!membersEl.textContent || membersEl.textContent === '...') {
+        membersEl.textContent = '-';
+      }
+    }
+  }
+
+  updateMemberCount();
+  window.setInterval(updateMemberCount, 60000);
+})();
+
+// FiveM players online (index.html) - refreshes automatically
+(function initFivemPlayerCount() {
+  const playersEl = document.getElementById('players-online');
+  if (!playersEl) return;
+
+  const joinCode = 'egme7b';
+
+  function getMaxClientsFromVars(vars) {
+    if (!vars || typeof vars !== 'object') return null;
+    const candidates = [
+      vars.sv_maxclients,
+      vars.sv_maxClients,
+      vars['sv_maxclients'],
+      vars['sv_maxClients'],
+      vars.sv_maxclientsperhost,
+    ];
+    for (const value of candidates) {
+      const n = Number.parseInt(value, 10);
+      if (Number.isFinite(n) && n > 0) return n;
+    }
+    return null;
+  }
+
+  async function fetchPlayersOnline() {
+    const url = `https://servers-frontend.fivem.net/api/servers/single/${encodeURIComponent(joinCode)}`;
+    const res = await fetch(url, { cache: 'no-store' });
+    if (!res.ok) throw new Error(`FiveM API error: ${res.status}`);
+
+    const payload = await res.json();
+    const data = payload?.Data;
+    if (!data) throw new Error('FiveM API returned no server data');
+
+    const players = Array.isArray(data.players) ? data.players.length : Number.parseInt(data.clients, 10) || 0;
+    const maxClients = Number.parseInt(data.svMaxclients, 10) || getMaxClientsFromVars(data.vars) || 128;
+
+    return `${players}/${maxClients}`;
+  }
+
+  async function updatePlayersOnline() {
+    try {
+      playersEl.textContent = await fetchPlayersOnline();
+    } catch (err) {
+      console.warn('FiveM player count update failed:', err);
+      if (!playersEl.textContent) playersEl.textContent = '0/128';
+    }
+  }
+
+  updatePlayersOnline();
+  window.setInterval(updatePlayersOnline, 30000);
+})();
+
+// Next restart countdown (index.html) - based on fixed daily schedule
+(function initRestartCountdown() {
+  const restartEl = document.getElementById('restart-timer');
+  if (!restartEl) return;
+
+  const timeZone = 'Europe/Copenhagen';
+  const restartHours = [2, 12, 18];
+  const zonedFormatter = new Intl.DateTimeFormat('en-GB', {
+    timeZone,
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    hour12: false,
+  });
+
+  function getDanishNow() {
+    const parts = zonedFormatter.formatToParts(new Date());
+    const values = {};
+    parts.forEach((part) => {
+      if (part.type !== 'literal') values[part.type] = Number.parseInt(part.value, 10);
+    });
+
+    // Build a stable "clock date" from Danish wall time.
+    return new Date(
+      Date.UTC(
+        values.year,
+        values.month - 1,
+        values.day,
+        values.hour,
+        values.minute,
+        values.second
+      )
+    );
+  }
+
+  function getNextRestart(now) {
+    for (const hour of restartHours) {
+      const candidate = new Date(now);
+      candidate.setHours(hour, 0, 0, 0);
+      if (candidate > now) return candidate;
+    }
+
+    const tomorrow = new Date(now);
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    tomorrow.setHours(restartHours[0], 0, 0, 0);
+    return tomorrow;
+  }
+
+  function pad(value) {
+    return String(value).padStart(2, '0');
+  }
+
+  function formatDiff(ms) {
+    const totalSeconds = Math.max(0, Math.floor(ms / 1000));
+    const hours = Math.floor(totalSeconds / 3600);
+    const minutes = Math.floor((totalSeconds % 3600) / 60);
+    const seconds = totalSeconds % 60;
+    return `${pad(hours)}:${pad(minutes)}:${pad(seconds)}`;
+  }
+
+  function updateRestartTimer() {
+    const now = getDanishNow();
+    const nextRestart = getNextRestart(now);
+    restartEl.textContent = formatDiff(nextRestart - now);
+  }
+
+  updateRestartTimer();
+  window.setInterval(updateRestartTimer, 1000);
+})();

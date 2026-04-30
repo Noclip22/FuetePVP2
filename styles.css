@@ -457,7 +457,7 @@ body::-webkit-scrollbar {
   top: 50%;
   left: 50%;
   width: 150%;
-  padding: 0.45rem 0;
+  padding: 0.42rem 0;
   margin: 0;
   text-align: center;
   font-size: 0.6875rem;
@@ -465,9 +465,12 @@ body::-webkit-scrollbar {
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: #fff;
-  background: linear-gradient(180deg, #d32f2f 0%, #9a1818 100%);
-  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.4);
-  transform: translate(-50%, -50%) rotate(-14deg);
+  background: #c61f28;
+  border-top: 1px solid #e64a53;
+  border-bottom: 1px solid #8f151c;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
+  transform: translate3d(-50%, -50%, 0) rotate(-12deg);
+  backface-visibility: hidden;
 }
 
 .hero-featured-buy {
@@ -1089,6 +1092,14 @@ body.shop-page {
   object-position: 48% 40%;
 }
 
+/* VIP MAY promo art — keep full frame and improve perceived sharpness */
+.store-product-img--vip-may {
+  object-fit: contain;
+  object-position: center;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
 .store-coin-amount {
   font-size: 2rem;
   font-weight: 700;
@@ -1135,14 +1146,9 @@ body.shop-page {
   margin-inline: auto;
 }
 
-/* MORE — ét kort centreret (.store-grid har ellers display:grid som kan overlappe --more) */
+/* MORE — keep same tight flex layout as UNBAN/CREWS */
 #shop-panel-more .store-grid.store-grid--more {
-  display: grid;
-  grid-template-columns: 1fr;
-  justify-items: center;
-  width: 100%;
-  max-width: 1100px;
-  margin-inline: auto;
+  display: flex;
 }
 
 /* CARS — horizontal scroll row + prev/next arrows (grid keeps both arrows on-screen) */
@@ -1242,11 +1248,8 @@ body.shop-page {
 .store-card--crews,
 .store-grid--cars .store-card--exclusive,
 #shop-panel-more .store-grid--more > .store-card {
-  flex: 0 0 auto;
-  width: min(
-    calc((1100px - 3 * 1.5rem) / 4),
-    calc(50% - 0.75rem)
-  );
+  flex: 0 1 auto;
+  width: min(100%, calc((1100px - 3 * 1.5rem) / 4));
   max-width: calc((1100px - 3 * 1.5rem) / 4);
 }
 

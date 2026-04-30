@@ -58,6 +58,18 @@ window.SHOP_CONFIG = {
       ],
       checkoutUrl: 'https://buy.stripe.com/7sYeVfgJZ1Gs8hsdn28EM0b',
     },
+    'more-vip-may': {
+      description:
+        'VIP MAY special deal: premium blue SUV package inspired by the featured promo artwork.',
+      perks: [
+        '1000 FCoins',
+        '2.500.000 Black Money',
+        '5x Assault SMGs',
+        'Armored vehicle shown in the image',
+        'VIP role on Discord',
+      ],
+      checkoutUrl: 'https://buy.stripe.com/6oU5kF0L14SE0P0er68EM0h',
+    },
     'cars-r1-2': {
       description:
         'F480R (300MPH): purple widebody BMW M4–style build. Replace copy and add checkoutUrl when ready.',
